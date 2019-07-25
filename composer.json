@@ -1,0 +1,32 @@
+{
+    "name": "POCDDD",
+    "description": "Projeto para estudos",
+    "authors": [
+        {
+            "name": "Guilherme Henrique Rodrigues",
+            "email": "guilhermerodriguestb@gmail.com"
+        }
+    ],
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "slim/slim": "^3.12",
+        "robmorgan/phinx": "^0.10.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "vendor/bin/phinx migrate -e development"
+        ],
+        "migrate":  "vendor/bin/phinx migrate -e development",
+        "seed": "vendor/bin/phinx seed:run"
+    },
+    "scripts-descriptions": {
+        "migrate": "Executa migração do banco de dados",
+        "seed": "Insere dados na tabela"
+    }
+}

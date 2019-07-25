@@ -1,0 +1,4 @@
+2019/06/11 16:50:24 [emerg] 1#1: host not found in upstream "slimapp" in /etc/nginx/conf.d/default.conf:28
+2019/06/11 16:51:38 [emerg] 1#1: host not found in upstream "slimapp" in /etc/nginx/conf.d/default.conf:28
+2019/06/11 16:58:20 [emerg] 1#1: host not found in upstream "slimapp" in /etc/nginx/conf.d/default.conf:28
+2019/06/11 17:04:31 [emerg] 1#1: host not found in upstream "slimapp" in /etc/nginx/conf.d/default.conf:28
