@@ -26,7 +26,7 @@ class CustomerController
      * @param Response $response
      * @param $args
      * @return Response
-     * @throws \Slim\Exception\NotFoundException
+     * @throws \Exception
      */
     public function findAll(Request $request, Response $response, $args)
     {
@@ -36,7 +36,7 @@ class CustomerController
         $customerService = $this->container->get(CustomerService::class);
         $customers = $customerService->findAll();
 
-        return  $response->withJson(
+        return $response->withJson(
             $customers,
             ResponseCode::HTTP_OK
         );

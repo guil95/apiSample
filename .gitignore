@@ -2,3 +2,4 @@ vendor
 .idea
 /docker/nginx/logs/pocddd.local.access.log
 /docker/nginx/logs/pocddd.local.error.log
+.env

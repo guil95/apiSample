@@ -11,7 +11,10 @@
     "license": "proprietary",
     "require": {
         "slim/slim": "^3.12",
-        "robmorgan/phinx": "^0.10.8"
+        "robmorgan/phinx": "^0.10.8",
+        "firebase/php-jwt": "^5.0",
+        "tuupola/slim-jwt-auth": "^3.4",
+        "vlucas/phpdotenv": "^3.4"
     },
     "autoload": {
         "psr-4": {
