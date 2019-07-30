@@ -21,7 +21,6 @@ class Application extends App
     {
         $app = $this;
 
-        require_once '../config/config.php';
         require_once '../config/routes.php';
         require_once '../config/containers.php';
 

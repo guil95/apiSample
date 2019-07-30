@@ -1,18 +1,21 @@
 <?php
 require '../vendor/autoload.php';
 
+$dotenv = Dotenv\Dotenv::create('../');
+$dotenv->overload();
+
 $app = new \App\Application([
     'settings' => [
         'displayErrorDetails' => true,
         'determineRouteBeforeAppMiddleware' => true,
         'db' => [
-            'driver'    => 'pdo_mysql',
-            'charset'   => 'utf8',
-            'host'      => 'db',
-            'port'      =>  3306,
-            'dbname'    => 'basepocddd',
-            'user'      => 'root',
-            'pass'      => 'root'
+            'driver'    => getenv('DB_DRIVER'),
+            'charset'   => getenv('DB_CHARSET'),
+            'host'      => getenv('DB_HOST'),
+            'port'      => getenv('DB_PORT'),
+            'dbname'    => getenv('DB_NAME'),
+            'user'      => getenv('DB_USER'),
+            'pass'      => getenv('DB_PASSWORD')
         ]
     ]
 ]);

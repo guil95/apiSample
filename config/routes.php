@@ -4,4 +4,4 @@ $app->get('/', \App\App\Controllers\CustomerController::class. ':findAll')->add(
     "secure" => false,
     "secret" => getenv("SECRET_JWT")
 ]));
-$app->get('/login', \App\App\Controllers\AuthController::class. ':login');
+$app->post('/login', \App\App\Controllers\AuthController::class. ':login');
