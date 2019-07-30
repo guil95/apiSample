@@ -1,6 +1,6 @@
 {
-    "name": "apiSample",
-    "description": "Projeto para estudos",
+    "name": "guil95/api-sample",
+    "description": "Sample project skeleton with, container, docker, migrate and auth",
     "authors": [
         {
             "name": "Guilherme Henrique Rodrigues",
