@@ -23,7 +23,7 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "vendor/bin/phinx migrate -e development"
+            ""
         ],
         "migrate":  "vendor/bin/phinx migrate -e development",
         "seed": "vendor/bin/phinx seed:run"
