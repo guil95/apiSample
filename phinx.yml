@@ -8,7 +8,7 @@ environments:
     production:
         adapter: mysql
         host: 127.0.0.1:3306
-        name: basepocddd
+        name: baseapisample
         user: root
         pass: root
         port: 3307
@@ -17,7 +17,7 @@ environments:
     development:
         adapter: mysql
         host: 127.0.0.1:3306
-        name: basepocddd
+        name: baseapisample
         user: root
         pass: root
         port: 3307
@@ -26,7 +26,7 @@ environments:
     testing:
         adapter: mysql
         host: 127.0.0.1:3306
-        name: basepocddd
+        name: baseapisample
         user: root
         pass: root
         port: 3307
