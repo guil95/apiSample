@@ -13,11 +13,11 @@ services:
             - ./nginx/conf:/etc/nginx/conf.d
             - ./nginx/logs:/var/log/nginx/
         depends_on:
-            - pocddd
+            - apisample
 
-    pocddd:
+    apisample:
         build: ./php
-        container_name: pocddd
+        container_name: apisample
         networks:
             - backend
             - frontend
@@ -40,7 +40,7 @@ services:
             - backend
         environment:
             - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_DATABASE=basepocddd
+            - MYSQL_DATABASE=baseapisample
 
 networks:
     backend:
