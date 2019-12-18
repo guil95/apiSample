@@ -15,15 +15,15 @@ $db = [
     'pass' => getenv('DB_PASSWORD')
 ];
 
-$container->set('db', function () use ($db) {
+$conn = function () use ($db) {
     $pdo = new PDO('mysql:host=' . $db['host'] . ';dbname=' . $db['dbname'], $db['user'], $db['pass']);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $pdo;
-});
+};
 
-$container->set(\App\Domain\Customer\CustomerService::class, function ($container) {
+$container->set(\App\Domain\Customer\CustomerService::class, function () use ($conn) {
     return new CustomerService(
-        new CustomerRepository($container->get('db'))
+        new CustomerRepository($conn())
     );
 });

@@ -5,8 +5,8 @@ namespace App\App\Controllers;
 use App\App\Infra\ResponseCode;
 use App\Domain\Customer\CustomerService;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\RequestInterface as Request;
-use Slim\Http\Response;
+use Slim\Psr7\Request;
+use Slim\Psr7\Response;
 
 class CustomerController
 {
@@ -36,10 +36,8 @@ class CustomerController
         $customerService = $this->container->get(CustomerService::class);
         $customers = $customerService->findAll();
 
-        return $response->withJson(
-            $customers,
-            ResponseCode::HTTP_OK
-        );
+        $response->getBody()->write(json_encode($customers));
+        return $response->withStatus(ResponseCode::HTTP_OK);
     }
 
 }
