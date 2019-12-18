@@ -6,8 +6,8 @@ namespace App\App\Controllers;
 use App\App\Infra\ResponseCode;
 use Firebase\JWT\JWT;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\RequestInterface as Request;
-use Slim\Http\Response;
+use Slim\Psr7\Request;
+use Slim\Psr7\Response;
 
 class AuthController
 {
@@ -39,6 +39,7 @@ class AuthController
 
         $jwt = JWT::encode($token, $key);
 
-        return $response->withJson(['token' => $jwt], ResponseCode::HTTP_OK);
+        $response->getBody()->write(json_encode(['token' => $jwt]));
+        return $response->withStatus(ResponseCode::HTTP_OK);
     }
 }
