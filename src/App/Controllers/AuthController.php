@@ -28,7 +28,7 @@ class AuthController
      * @param $args
      * @return Response
      */
-    public function login(Request $request, Response $response, $args)
+    public function auth(Request $request, Response $response, $args)
     {
         $key = getenv('SECRET_JWT');
 
