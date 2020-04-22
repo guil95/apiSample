@@ -23,7 +23,7 @@ class CustomerSeeder extends AbstractSeed
                 'name' => 'Jeronimo',
             ],
             [
-                'name' => 'Kuesny'
+                'name' => 'Juarez'
             ]
         ];
 
