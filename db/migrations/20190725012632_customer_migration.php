@@ -31,8 +31,7 @@ class CustomerMigration extends AbstractMigration
      */
     public function change()
     {
-        $local = $this->table('customers');
-        $local
+        $this->table('customers')
             ->addColumn('name', 'string', ['limit' => 255])
             ->create();
     }

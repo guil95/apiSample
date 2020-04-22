@@ -27,8 +27,8 @@ class CustomerSeeder extends AbstractSeed
             ]
         ];
 
-        $posts = $this->table('customers');
-        $posts->insert($data)
+        $this->table('customers')
+            ->insert($data)
             ->save();
     }
 }
