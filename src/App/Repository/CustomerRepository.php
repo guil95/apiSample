@@ -4,8 +4,9 @@ namespace App\App\Repository;
 
 
 use App\Domain\Customer\CustomerRepositoryInterface;
+use DG\BypassFinals;
 
-class CustomerRepository implements CustomerRepositoryInterface
+final class CustomerRepository implements CustomerRepositoryInterface
 {
     private $connection;
 

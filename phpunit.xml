@@ -1,0 +1,5 @@
+<phpunit bootstrap="vendor/autoload.php">
+    <listeners>
+        <listener class="Tests\Listener\BypassFinalListener"/>
+    </listeners>
+</phpunit>
