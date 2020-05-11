@@ -1,15 +1,18 @@
 <?php
 
-namespace App\App\Repository;
+namespace App\App\Infra\DAO;
 
 
-use App\Domain\Customer\CustomerRepositoryInterface;
-use DG\BypassFinals;
+use App\Domain\Customer\CustomerDAOInterface;
 
-final class CustomerRepository implements CustomerRepositoryInterface
+final class Customer implements CustomerDAOInterface
 {
     private $connection;
 
+    /**
+     * Customer constructor.
+     * @param \PDO $connection
+     */
     public function __construct(\PDO $connection)
     {
         /**
@@ -18,6 +21,9 @@ final class CustomerRepository implements CustomerRepositoryInterface
         $this->connection = $connection;
     }
 
+    /**
+     * @return array
+     */
     public function findAll()
     {
         $stmt = $this->connection->prepare("SELECT * FROM customers");

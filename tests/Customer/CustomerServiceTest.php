@@ -3,7 +3,7 @@
 namespace Tests\Customer;
 
 
-use App\App\Repository\CustomerRepository;
+use App\App\Infra\DAO\Customer;
 use App\Domain\Customer\CustomerService;
 use PHPUnit\Framework\TestCase;
 
@@ -11,20 +11,20 @@ use PHPUnit\Framework\TestCase;
 class CustomerServiceTest extends TestCase
 {
     /**
-     * @expectedException \Exception
+     * @expectedException \App\Domain\Customer\Exception\CustomerNotFund
      */
     public function testFindAllEmpty()
     {
-        $costumerRepository = $this->getMockBuilder(CustomerRepository::class)
+        $customerDAO = $this->getMockBuilder(Customer::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $costumerRepository->method('findAll')
+        $customerDAO->method('findAll')
             ->will($this->returnValue([]));
 
 
         $costumerService = new CustomerService(
-            $costumerRepository
+            $customerDAO
         );
 
         $costumerService->findAll();
@@ -32,7 +32,7 @@ class CustomerServiceTest extends TestCase
 
     public function testFindAllNotEmpty()
     {
-        $costumerRepository = $this->getMockBuilder(CustomerRepository::class)
+        $customerDAO = $this->getMockBuilder(Customer::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -40,13 +40,13 @@ class CustomerServiceTest extends TestCase
             'name' => 'Guilherme'
         ];
 
-        $costumerRepository->method('findAll')
+        $customerDAO->method('findAll')
             ->will(
                 $this->returnValue($costumers)
             );
 
         $costumerService = new CustomerService(
-            $costumerRepository
+            $customerDAO
         );
 
         $result = $costumerService->findAll();

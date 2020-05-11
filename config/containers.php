@@ -1,6 +1,6 @@
 <?php
 
-use App\App\Repository\CustomerRepository;
+use App\App\Infra\DAO\Customer;
 use App\Domain\Customer\CustomerService;
 
 $container = new \DI\Container();
@@ -24,6 +24,6 @@ $conn = function () use ($db) {
 
 $container->set(\App\Domain\Customer\CustomerService::class, function () use ($conn) {
     return new CustomerService(
-        new CustomerRepository($conn())
+        new Customer($conn())
     );
 });

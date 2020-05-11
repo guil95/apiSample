@@ -2,7 +2,7 @@
 
 namespace App\Domain\Customer;
 
-interface CustomerRepositoryInterface
+interface CustomerDAOInterface
 {
     public function __construct(\PDO $connection);
 

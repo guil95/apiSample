@@ -2,15 +2,19 @@
 
 namespace App\Domain\Customer;
 
-use Slim\Exception\NotFoundException;
+use App\Domain\Customer\Exception\CustomerNotFund;
 
 final class CustomerService
 {
-    private $repository;
+    private $dao;
 
-    public function __construct(CustomerRepositoryInterface $repository)
+    /**
+     * CustomerService constructor.
+     * @param CustomerDAOInterface $dao
+     */
+    public function __construct(CustomerDAOInterface $dao)
     {
-        $this->repository = $repository;
+        $this->dao = $dao;
     }
 
     /**
@@ -20,10 +24,10 @@ final class CustomerService
     public function findAll(): array
     {
         $this->validSomeone();
-        $customers = $this->repository->findAll();
+        $customers = $this->dao->findAll();
 
         if (!$customers) {
-            throw new \Exception('Clientes não encontrados');
+            throw new CustomerNotFund('Clientes não encontrados');
         }
 
         return $customers;
