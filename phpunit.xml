@@ -1,5 +1,13 @@
 <phpunit bootstrap="vendor/autoload.php">
-    <listeners>
-        <listener class="Tests\Listener\BypassFinalListener"/>
-    </listeners>
+    <extensions>
+        <extension class="Tests\Hooks\BypassFinalHook"/>
+    </extensions>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+            <exclude>
+                <file>src</file>
+            </exclude>
+        </whitelist>
+    </filter>
 </phpunit>

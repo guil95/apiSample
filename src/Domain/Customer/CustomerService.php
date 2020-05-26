@@ -2,7 +2,7 @@
 
 namespace App\Domain\Customer;
 
-use App\Domain\Customer\Exception\CustomerNotFund;
+use App\Domain\Customer\Exception\CustomerNotFound;
 
 final class CustomerService
 {
@@ -27,7 +27,7 @@ final class CustomerService
         $customers = $this->dao->findAll();
 
         if (!$customers) {
-            throw new CustomerNotFund('Clientes não encontrados');
+            throw new CustomerNotFound('Clientes não encontrados');
         }
 
         return $customers;

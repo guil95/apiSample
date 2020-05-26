@@ -5,16 +5,15 @@ namespace Tests\Customer;
 
 use App\App\Infra\DAO\Customer;
 use App\Domain\Customer\CustomerService;
+use App\Domain\Customer\Exception\CustomerNotFound;
 use PHPUnit\Framework\TestCase;
 
 
 class CustomerServiceTest extends TestCase
 {
-    /**
-     * @expectedException \App\Domain\Customer\Exception\CustomerNotFund
-     */
     public function testFindAllEmpty()
     {
+        self::expectException(CustomerNotFound::class);
         $customerDAO = $this->getMockBuilder(Customer::class)
             ->disableOriginalConstructor()
             ->getMock();

@@ -2,7 +2,7 @@
 
 namespace App\Domain\Customer\Exception;
 
-class CustomerNotFund extends \Exception
+class CustomerNotFound extends \Exception
 {
 
 }

@@ -2,6 +2,11 @@
 require '../vendor/autoload.php';
 use Slim\Factory\AppFactory;
 
+DG\BypassFinals::enable();
+DG\BypassFinals::setWhitelist([
+    '*/Tests/*',
+]);
+
 $dotenv = Dotenv\Dotenv::create('../');
 $dotenv->overload();
 
