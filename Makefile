@@ -3,3 +3,6 @@ test:
 
 test-coverage: test
 	- xdg-open build/coverage-report/index.html
+
+test-coverage-mac: test
+        - open build/coverage-report/index.html
