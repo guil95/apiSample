@@ -15,7 +15,7 @@
     "firebase/php-jwt": "^5.0",
     "tuupola/slim-jwt-auth": "^3.4",
     "vlucas/phpdotenv": "^3.4",
-    "slim/psr7": "^0.6.0",
+    "slim/psr7": "^1.6.1",
     "php-di/php-di": "^6.0",
     "phpunit/php-code-coverage": "^8.0"
   },
